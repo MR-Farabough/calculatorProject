@@ -1,0 +1,97 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    margin: 25%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.header {
+    text-align: center;
+    background-color: green;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-width: 270px;
+    height: 600px;
+    background-color: rgb(64, 64, 64);
+    padding-bottom: 10px;
+    border: 8px solid green;
+}
+
+.text-part {
+    text-align: right;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.results-part {
+    font-size: 30px;
+    background-color: grey;
+    padding: 10px;
+    border: 2px solid lightblue;
+}
+
+.extra-operator {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 0px;
+    justify-content: right;
+}
+
+.extra-operator button{
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    width: 60px;
+    height: 68px;
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+}
+
+.bottom-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.number-button-part {
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+    max-width: 200px;
+}
+
+.number-button-part button {
+    flex: auto;
+    min-width: 60px;
+    max-height: 68px;
+}
+
+.operation-button-part button{
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    width: 60px;
+    height: 68px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100px;
+    max-height: 350px
+}
+
+button {
+    width: 50px;
+    height: 100px;
+    background-color: grey;
+}
