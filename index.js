@@ -16,58 +16,92 @@ const num2 = document.querySelector('.two')
 const num3 = document.querySelector('.three')
 const num0 = document.querySelector('.zero')
 const periodBTN = document.querySelector('.periodBTN')
-let resultArr = [];
+let decimalCheckArr = [];
+let numArr = [];
+let totalResult = '0';
 
 clearBTN.addEventListener('click', () => {
     resultEL.textContent = ""
-    resultArr = []
+    decimalCheckArr = []
+    numArr = []
+    totalResult = '0'
+})
+
+equalBTN.addEventListener('click', () => {
+
+})
+
+plusBTN.addEventListener('click', () => {
+
+})
+
+minusBTN.addEventListener('click', () => {
+
+})
+
+multiplyBTN.addEventListener('click', () => {
+
+})
+
+divideBTN.addEventListener('click', () => {
+
 })
 
 num0.addEventListener('click', () => {
+    numArr.push(0)
     resultEL.textContent += 0
 })
 num1.addEventListener('click', () => {
+    numArr.push(1)
     resultEL.textContent += 1
 })
 num2.addEventListener('click', () => {
+    numArr.push(2)
     resultEL.textContent += 2
 })
 num3.addEventListener('click', () => {
+    numArr.push(3)
     resultEL.textContent += 3
 })
 num4.addEventListener('click', () => {
+    numArr.push(4)
     resultEL.textContent += 4
 })
 num5.addEventListener('click', () => {
+    numArr.push(5)
     resultEL.textContent += 5
 })
 num6.addEventListener('click', () => {
+    numArr.push(6)
     resultEL.textContent += 6
 })
 num7.addEventListener('click', () => {
+    numArr.push(7)
     resultEL.textContent += 7
 })
 num8.addEventListener('click', () => {
+    numArr.push(8)
     resultEL.textContent += 8
 })
 num9.addEventListener('click', () => {
+    numArr.push(9)
     resultEL.textContent += 9
 })
 periodBTN.addEventListener('click', () => {
-    console.log(resultArr)
+    console.log(decimalCheckArr)
     for (let i = 0; i < resultEL.textContent.length; i++) {
-        if (resultArr[i] === '.') {
+        if (decimalCheckArr[i] === '.') {
             break
         } else {
             resultEL.textContent += '.'
-            return resultArr.push('.')
+            return decimalCheckArr.push('.')
         }
     }
     for (let index = 0; index < resultEL.textContent.length; index++) {
-        if (resultArr[index] === '.') {
+        if (decimalCheckArr[index] === '.') {
             break
         } else {
-            return resultArr.push(resultEL.textContent[index])
+            return decimalCheckArr.push(resultEL.textContent[index])
         }
         
     }
