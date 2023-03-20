@@ -56,7 +56,12 @@ equalBTN.addEventListener('click', () => {
         resultEL.textContent = totalResult
         opArr.push('equals')
     } else {
-        // divide the second to lsat number by last number in numArr
+        totalResult = (numArr[numArrLength - 2] / numArr[numArrLength - 1])
+        opArr.push('division')
+        numArr.push(totalResult)
+        console.log(numArr)
+        resultEL.textContent = totalResult
+        opArr.push('equals')
     }
 })
 
@@ -134,9 +139,27 @@ multiplyBTN.addEventListener('click', () => {
 })
 
 divideBTN.addEventListener('click', () => {
-    numArr.push(parseFloat(resultEL.textContent))
-    resultEL.textContent = ''
-    opArr.push('divide')
+    opArrLength = opArr.length
+    if (opArr[opArrLength - 1] === 'equals') {
+        numArrLength = numArr.length
+        resultEL.textContent = ''
+        opArr.push('division')
+        console.log(numArr)
+    } else if (opArrLength === 0) {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        resultEL.textContent = ''
+        opArr.push('division')
+        console.log(numArr)
+    } else {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        numArr.push(numArr[numArrLength - 2] / numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        opArr.push('division')
+        console.log(numArr)
+    }
 })
 
 num0.addEventListener('click', () => {
