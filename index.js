@@ -18,13 +18,13 @@ const num0 = document.querySelector('.zero')
 const periodBTN = document.querySelector('.periodBTN')
 let decimalCheckArr = [];
 let numArr = [];
-let totalResult = '0';
+let totalResult = '';
 
 clearBTN.addEventListener('click', () => {
-    resultEL.textContent = ""
+    resultEL.textContent = ''
     decimalCheckArr = []
     numArr = []
-    totalResult = '0'
+    totalResult = ''
 })
 
 equalBTN.addEventListener('click', () => {
