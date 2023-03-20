@@ -212,5 +212,4 @@ periodBTN.addEventListener('click', () => {
     }
 })
 
-// need to be able to chain operators without hitting enter
-// THEN I AM FULLY DONE!
+// TODO need to be able to chain operators without hitting enter
