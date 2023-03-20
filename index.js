@@ -16,37 +16,59 @@ const num2 = document.querySelector('.two')
 const num3 = document.querySelector('.three')
 const num0 = document.querySelector('.zero')
 const periodBTN = document.querySelector('.periodBTN')
+let resultArr = [];
+
+clearBTN.addEventListener('click', () => {
+    resultEL.textContent = ""
+    resultArr = []
+})
 
 num0.addEventListener('click', () => {
-    console.log('0')
+    resultEL.textContent += 0
 })
 num1.addEventListener('click', () => {
-    console.log('1')
+    resultEL.textContent += 1
 })
 num2.addEventListener('click', () => {
-    console.log('2')
+    resultEL.textContent += 2
 })
 num3.addEventListener('click', () => {
-    console.log('3')
+    resultEL.textContent += 3
 })
 num4.addEventListener('click', () => {
-    console.log('4')
+    resultEL.textContent += 4
 })
 num5.addEventListener('click', () => {
-    console.log('5')
+    resultEL.textContent += 5
 })
 num6.addEventListener('click', () => {
-    console.log('6')
+    resultEL.textContent += 6
 })
 num7.addEventListener('click', () => {
-    console.log('7')
+    resultEL.textContent += 7
 })
 num8.addEventListener('click', () => {
-    console.log('8')
+    resultEL.textContent += 8
 })
 num9.addEventListener('click', () => {
-    console.log('9')
+    resultEL.textContent += 9
 })
 periodBTN.addEventListener('click', () => {
-    console.log('.')
+    console.log(resultArr)
+    for (let i = 0; i < resultEL.textContent.length; i++) {
+        if (resultArr[i] === '.') {
+            break
+        } else {
+            resultEL.textContent += '.'
+            return resultArr.push('.')
+        }
+    }
+    for (let index = 0; index < resultEL.textContent.length; index++) {
+        if (resultArr[index] === '.') {
+            break
+        } else {
+            return resultArr.push(resultEL.textContent[index])
+        }
+        
+    }
 })

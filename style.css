@@ -97,6 +97,14 @@ a {
     font-size: 25px;
 }
 
+.zero {
+    width: 113.5px;
+}
+
+.clearBTN {
+    min-width: 126.66px;
+}
+
 .operation-button-part button{
     margin: 0px;
     align-items: center;
