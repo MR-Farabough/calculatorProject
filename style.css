@@ -72,6 +72,7 @@ a {
     display: flex;
     flex: auto;
     flex-wrap: wrap;
+    font-size: 25px;
 }
 
 .bottom-part {
@@ -93,6 +94,7 @@ a {
     flex: auto;
     min-width: 60px;
     max-height: 68px;
+    font-size: 25px;
 }
 
 .operation-button-part button{
@@ -105,7 +107,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     max-width: 100px;
-    max-height: 350px
+    max-height: 350px;
+    font-size: 25px;
 }
 
 button {

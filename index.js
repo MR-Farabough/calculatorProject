@@ -47,3 +47,6 @@ num8.addEventListener('click', () => {
 num9.addEventListener('click', () => {
     console.log('9')
 })
+periodBTN.addEventListener('click', () => {
+    console.log('.')
+})
