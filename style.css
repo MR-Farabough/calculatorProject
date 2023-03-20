@@ -1,3 +1,12 @@
+@font-face {
+    font-family: digitalSeven;
+    src: url(./fonts/digital-font);
+}
+@font-face {
+    font-family: secondFont;
+    src: url(./fonts/second-font);
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -48,10 +57,11 @@ a {
 }
 
 .results-part {
-    font-size: 25px;
+    font-family: secondFont;
+    font-size: 30px;
     min-height: 30px;
     background-color: grey;
-    padding: 10px;
+    padding: 5px;
     border: 2px solid lightlightblue;
 }
 
