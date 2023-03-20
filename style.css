@@ -57,6 +57,7 @@ a {
 }
 
 .results-part {
+    color: lightblue;
     font-family: secondFont;
     font-size: 30px;
     min-height: 30px;
@@ -83,6 +84,7 @@ a {
     flex: auto;
     flex-wrap: wrap;
     font-size: 25px;
+    color: black;
 }
 
 .bottom-part {
@@ -105,6 +107,7 @@ a {
     min-width: 60px;
     max-height: 68px;
     font-size: 25px;
+    color: black;
 }
 
 .zero {
@@ -127,6 +130,7 @@ a {
     max-width: 100px;
     max-height: 350px;
     font-size: 25px;
+    color: black;
 }
 
 button {
