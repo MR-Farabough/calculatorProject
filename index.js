@@ -19,11 +19,13 @@ const periodBTN = document.querySelector('.periodBTN')
 let decimalCheckArr = [];
 let numArr = [];
 let totalResult = '';
+let newArr = [0];
 
 clearBTN.addEventListener('click', () => {
     resultEL.textContent = ''
     decimalCheckArr = []
     numArr = []
+    newArr = [0]
     totalResult = ''
 })
 
@@ -48,43 +50,33 @@ divideBTN.addEventListener('click', () => {
 })
 
 num0.addEventListener('click', () => {
-    numArr.push(0)
     resultEL.textContent += 0
 })
 num1.addEventListener('click', () => {
-    numArr.push(1)
     resultEL.textContent += 1
 })
 num2.addEventListener('click', () => {
-    numArr.push(2)
     resultEL.textContent += 2
 })
 num3.addEventListener('click', () => {
-    numArr.push(3)
     resultEL.textContent += 3
 })
 num4.addEventListener('click', () => {
-    numArr.push(4)
     resultEL.textContent += 4
 })
 num5.addEventListener('click', () => {
-    numArr.push(5)
     resultEL.textContent += 5
 })
 num6.addEventListener('click', () => {
-    numArr.push(6)
     resultEL.textContent += 6
 })
 num7.addEventListener('click', () => {
-    numArr.push(7)
     resultEL.textContent += 7
 })
 num8.addEventListener('click', () => {
-    numArr.push(8)
     resultEL.textContent += 8
 })
 num9.addEventListener('click', () => {
-    numArr.push(9)
     resultEL.textContent += 9
 })
 periodBTN.addEventListener('click', () => {
