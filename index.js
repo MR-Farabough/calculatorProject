@@ -17,36 +17,79 @@ const num3 = document.querySelector('.three')
 const num0 = document.querySelector('.zero')
 const periodBTN = document.querySelector('.periodBTN')
 let decimalCheckArr = [];
-let numArr = [];
+let numArr = [0];
+let opArr = [];
 let totalResult = '';
-let newArr = [0];
 
 clearBTN.addEventListener('click', () => {
     resultEL.textContent = ''
     decimalCheckArr = []
-    numArr = []
-    newArr = [0]
+    numArr = [0]
     totalResult = ''
+    opArr = []
 })
 
 equalBTN.addEventListener('click', () => {
-
+    numArr.push(parseFloat(resultEL.textContent))
+    console.log(numArr)
+    opArrLength = opArr.length
+    numArrLength = numArr.length
+    if (opArr[opArrLength - 1] === 'addition') {
+        totalResult = (numArr[numArrLength - 2] + numArr[numArrLength - 1])
+        opArr.push('addition')
+        numArr.push(totalResult)
+        console.log(numArr)
+        resultEL.textContent = totalResult
+        opArr.push('equals')
+    } else if (opArr[opArrLength - 1] === 'subtraction') {
+        // subtract the second to last number to the last number in numArr
+    } else if (opArr[opArrLength - 1] === 'multiplication') {
+        // multiply the last two numbers in numArr
+    } else {
+        // divide the second to lsat number by last number in numArr
+    }
 })
 
 plusBTN.addEventListener('click', () => {
-
+    opArrLength = opArr.length
+    if (opArr[opArrLength - 1] === 'equals') {
+        numArrLength = numArr.length
+        resultEL.textContent = ''
+        opArr.push('addition')
+        console.log(numArr)
+    } else if (opArrLength === 0) {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        numArr.push(numArr[numArrLength - 2] + numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        opArr.push('addition')
+        console.log(numArr)
+    } else {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        numArr.push(numArr[numArrLength - 2] + numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        opArr.push('addition')
+        console.log(numArr)
+    }
 })
 
 minusBTN.addEventListener('click', () => {
-
+    numArr.push(parseFloat(resultEL.textContent))
+    resultEL.textContent = ''
+    opArr.push('subtraction')
 })
 
 multiplyBTN.addEventListener('click', () => {
-
+    numArr.push(parseFloat(resultEL.textContent))
+    resultEL.textContent = ''
+    opArr.push('multiplication')
 })
 
 divideBTN.addEventListener('click', () => {
-
+    numArr.push(parseFloat(resultEL.textContent))
+    resultEL.textContent = ''
+    opArr.push('divide')
 })
 
 num0.addEventListener('click', () => {
