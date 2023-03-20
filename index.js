@@ -42,7 +42,12 @@ equalBTN.addEventListener('click', () => {
         resultEL.textContent = totalResult
         opArr.push('equals')
     } else if (opArr[opArrLength - 1] === 'subtraction') {
-        // subtract the second to last number to the last number in numArr
+        totalResult = (numArr[numArrLength - 2] - numArr[numArrLength - 1])
+        opArr.push('subtraction')
+        numArr.push(totalResult)
+        console.log(numArr)
+        resultEL.textContent = totalResult
+        opArr.push('equals')
     } else if (opArr[opArrLength - 1] === 'multiplication') {
         // multiply the last two numbers in numArr
     } else {
@@ -75,9 +80,27 @@ plusBTN.addEventListener('click', () => {
 })
 
 minusBTN.addEventListener('click', () => {
-    numArr.push(parseFloat(resultEL.textContent))
-    resultEL.textContent = ''
-    opArr.push('subtraction')
+    opArrLength = opArr.length
+    if (opArr[opArrLength - 1] === 'equals') {
+        numArrLength = numArr.length
+        resultEL.textContent = ''
+        opArr.push('subtraction')
+        console.log(numArr)
+    } else if (opArrLength === 0) {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        numArr.push(numArr[numArrLength - 2] - numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        opArr.push('subtraction')
+        console.log(numArr)
+    } else {
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
+        numArr.push(numArr[numArrLength - 2] - numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        opArr.push('subtraction')
+        console.log(numArr)
+    }
 })
 
 multiplyBTN.addEventListener('click', () => {
