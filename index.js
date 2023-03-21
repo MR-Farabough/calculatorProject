@@ -154,13 +154,16 @@ function equals() {
 
     }
 }
-// Declare event listeners
-clearBTN.addEventListener('click', () => {
+function clear() {
     resultEL.textContent = ''
     decimalCheckArr = []
     numArr = [0]
     totalResult = ''
     opArr = []
+}
+// Declare event listeners
+clearBTN.addEventListener('click', () => {
+    clear()
 })
 
 delBTN.addEventListener('click', () => {
@@ -179,6 +182,9 @@ delBTN.addEventListener('click', () => {
 equalBTN.addEventListener('click', () => {
     console.log(opArr.length)
     equals()
+    rezz = totalResult
+    clear()
+    resultEL.textContent = rezz
     console.log(opArr)
     decimalCheckArr = []
 })
