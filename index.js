@@ -182,9 +182,9 @@ delBTN.addEventListener('click', () => {
 equalBTN.addEventListener('click', () => {
     console.log(opArr.length)
     equals()
-    rezz = totalResult
+    res = totalResult
     clear()
-    resultEL.textContent = rezz
+    resultEL.textContent = res
     console.log(opArr)
     decimalCheckArr = []
 })
@@ -279,6 +279,11 @@ multiplyBTN.addEventListener('click', () => {
 divideBTN.addEventListener('click', () => {
    decimalCheckArr = []
    opArr.push('division')
+   for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    
+   }
+   if (numArr)
    opArrLength = opArr.length
    if (opArr.length === 1) {
         divide()
@@ -340,6 +345,5 @@ periodBTN.addEventListener('click', () => {
 })
 
 // TODO make negtive numbers work
-// TODO backspace button
 // TODO number outside the
 // TODO fix what would happen if any button is pressed twice or equal button before other numbers / buttons
