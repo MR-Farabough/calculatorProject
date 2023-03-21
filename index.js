@@ -28,14 +28,13 @@ function add() {
     if (opArr[opArrLength - 1] === 'equals') {
         numArrLength = numArr.length
         resultEL.textContent = ''
-        opArr.push('addition')
+        
         console.log(numArr)
     } else {
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] + numArr[numArrLength - 1])
         resultEL.textContent = ''
-        opArr.push('addition')
         console.log(numArr)
     }
 }
@@ -45,14 +44,13 @@ function minus() {
     if (opArr[opArrLength - 1] === 'equals') {
         numArrLength = numArr.length
         resultEL.textContent = ''
-        opArr.push('subtraction')
+        
         console.log(numArr)
     } else {
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] - numArr[numArrLength - 1])
         resultEL.textContent = ''
-        opArr.push('subtraction')
         console.log(numArr)
     }
 }
@@ -62,7 +60,6 @@ function multiply() {
     if (opArr[opArrLength - 1] === 'equals') {
         numArrLength = numArr.length
         resultEL.textContent = ''
-        opArr.push('multiplication')
         console.log(numArr)
     } else if (opArrLength === 0) {
         numArr = [1]
@@ -70,14 +67,12 @@ function multiply() {
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] * numArr[numArrLength - 1])
         resultEL.textContent = ''
-        opArr.push('multiplication')
         console.log(numArr)
     } else {
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] * numArr[numArrLength - 1])
         resultEL.textContent = ''
-        opArr.push('multiplication')
         console.log(numArr)
     }
 }
@@ -87,21 +82,18 @@ function divide() {
     if (opArr[opArrLength - 1] === 'equals') {
         numArrLength = numArr.length
         resultEL.textContent = ''
-        opArr.push('division')
         console.log(numArr)
     } else if (opArrLength === 0) {
         numArr.push(parseFloat(resultEL.textContent))
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         resultEL.textContent = ''
-        opArr.push('division')
         console.log(numArr)
     } else {
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] / numArr[numArrLength - 1])
         resultEL.textContent = ''
-        opArr.push('division')
         console.log(numArr)
     }
 }
@@ -124,16 +116,8 @@ function checkDecimal() {
         
     }
 }
-// Declare event listeners
-clearBTN.addEventListener('click', () => {
-    resultEL.textContent = ''
-    decimalCheckArr = []
-    numArr = [0]
-    totalResult = ''
-    opArr = []
-})
 
-equalBTN.addEventListener('click', () => {
+function equals() {
     numArr.push(parseFloat(resultEL.textContent))
     console.log(numArr)
     opArrLength = opArr.length
@@ -169,24 +153,44 @@ equalBTN.addEventListener('click', () => {
     } else {
 
     }
+}
+// Declare event listeners
+clearBTN.addEventListener('click', () => {
+    resultEL.textContent = ''
+    decimalCheckArr = []
+    numArr = [0]
+    totalResult = ''
+    opArr = []
+})
+
+equalBTN.addEventListener('click', () => {
+    equals()
+    console.log(opArr)
     decimalCheckArr = []
 })
 
 plusBTN.addEventListener('click', () => {
     decimalCheckArr = []
+    opArr.push('addition')
     opArrLength = opArr.length
-    if (opArr.length === 0) {
+    if (opArr.length === 1) {
         add()
-    } else if (opArr[opArrLength - 1] === 'addition') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-    } else if (opArr[opArrLength - 1] === 'subtraction') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-    } else if (opArr[opArrLength - 1] === 'multiplication') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-    } else if (opArr[opArrLength - 1] === 'divison') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-    } else if (opArr[opArrLength - 1] === 'equals') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'equals') {
         add()
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
@@ -195,19 +199,26 @@ plusBTN.addEventListener('click', () => {
 
 minusBTN.addEventListener('click', () => {
     decimalCheckArr = []
+    opArr.push('subtraction')
     opArrLength = opArr.length
-    if (opArr.length === 0) {
+    if (opArr.length === 1) {
         minus()
-    } else if (opArr[opArrLength - 1] === 'addition') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-    } else if (opArr[opArrLength - 1] === 'subtraction') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-    } else if (opArr[opArrLength - 1] === 'multiplication') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-    } else if (opArr[opArrLength - 1] === 'divison') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-    } else if (opArr[opArrLength - 1] === 'equals') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'equals') {
         minus()
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
@@ -216,19 +227,27 @@ minusBTN.addEventListener('click', () => {
 
 multiplyBTN.addEventListener('click', () => {
     decimalCheckArr = []
+    opArr.push('multiplication')
     opArrLength = opArr.length
-    if (opArr.length === 0) {
+    if (opArr.length === 1) {
+        numArr = [1]
         multiply()
-    } else if (opArr[opArrLength - 1] === 'addition') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-    } else if (opArr[opArrLength - 1] === 'subtraction') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-    } else if (opArr[opArrLength - 1] === 'multiplication') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-    } else if (opArr[opArrLength - 1] === 'divison') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-    } else if (opArr[opArrLength - 1] === 'equals') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+    } else if (opArr[opArrLength - 2] === 'equals') {
         multiply()
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
@@ -237,19 +256,26 @@ multiplyBTN.addEventListener('click', () => {
 
 divideBTN.addEventListener('click', () => {
    decimalCheckArr = []
+   opArr.push('division')
    opArrLength = opArr.length
-   if (opArr.length === 0) {
+   if (opArr.length === 1) {
         divide()
-   } else if (opArr[opArrLength - 1] === 'addition') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+   } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-   } else if (opArr[opArrLength - 1] === 'subtraction') {
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+   } else if (opArr[opArrLength - 2] === 'subtraction') {
        minus()
-   } else if (opArr[opArrLength - 1] === 'multiplication') {
+       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+   } else if (opArr[opArrLength - 2] === 'multiplication') {
        multiply()
-   } else if (opArr[opArrLength - 1] === 'divison') {
+       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+   } else if (opArr[opArrLength - 2] === 'divison') {
        divide()
-   } else if (opArr[opArrLength - 1] === 'equals') {
+       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+   } else if (opArr[opArrLength - 2] === 'equals') {
         divide()
+        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else {
 
    }
@@ -291,7 +317,7 @@ periodBTN.addEventListener('click', () => {
     checkDecimal()
 })
 
-// TODO need to be able to chain operators without hitting enter
 // TODO make negtive numbers work
 // TODO backspace button
 // TODO number outside the
+// TODO fix what would happen if any button is pressed twice or equal button before other numbers / buttons
