@@ -7,14 +7,18 @@
     src: url(./fonts/second-font);
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0px;
     padding: 0px;
     border: 0px;
-    margin: 25%;
+    min-height: 100%;
     display: flex;
     justify-content: center;
-    
+    align-items: center;
 }
 
 a {
