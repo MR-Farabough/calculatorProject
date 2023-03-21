@@ -20,7 +20,6 @@ let decimalCheckArr = [];
 let numArr = [0];
 let opArr = [];
 let totalResult = '';
-
 // Declare functions
 
 function add() {
@@ -196,6 +195,8 @@ plusBTN.addEventListener('click', () => {
     }
     console.log(numArr, opArr) 
 })
+
+// while 
 
 minusBTN.addEventListener('click', () => {
     decimalCheckArr = []
