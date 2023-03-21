@@ -5,6 +5,7 @@ const multiplyBTN = document.querySelector('.multiplyBTN')
 const divideBTN = document.querySelector('.divideBTN')
 const minusBTN = document.querySelector('.minusBTN')
 const plusBTN = document.querySelector('.plusBTN')
+const delBTN = document.querySelector('.delBTN')
 const num7 = document.querySelector('.seven')
 const num8 = document.querySelector('.eight')
 const num9 = document.querySelector('.nine')
@@ -162,7 +163,21 @@ clearBTN.addEventListener('click', () => {
     opArr = []
 })
 
+delBTN.addEventListener('click', () => {
+    delArr = []
+    delStr = ''
+    for (let index = 0; index < resultEL.textContent.length; index++) {
+        delArr.push(resultEL.textContent[index])
+    }
+    delArr.pop()
+    for (let index = 0; index < delArr.length; index++) {
+        delStr += delArr[index]
+    }
+    resultEL.textContent = delStr
+})
+
 equalBTN.addEventListener('click', () => {
+    console.log(opArr.length)
     equals()
     console.log(opArr)
     decimalCheckArr = []
