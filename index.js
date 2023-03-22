@@ -107,17 +107,6 @@ function checkDecimal() {
         resultEL.textContent += '.'
         return decimalCheckArr.push('.')
     }
-    // for (let index = 0; index < resultEL.textContent.length; index++) {
-    //     if (decimalCheckArr.length == 0) {
-    //         decimalCheckArr.push('.')
-    //         resultEL.textContent += '.'
-    //     } else if (decimalCheckArr[index] === '.') {
-    //         break
-    //     } else {
-    //         decimalCheckArr.push(resultEL.textContent[index])
-    //         break 
-    //     }
-    // }
 }
 
 function checkNaN(num) {
