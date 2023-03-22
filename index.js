@@ -1,6 +1,6 @@
 const resultEL = document.querySelector('.results-part')
 const clearBTN = document.querySelector('.clearBTN')
-const equalBTN = document.querySelector('.equalBTN')
+const equalBTN = document.getElementById('equalBTN')
 const multiplyBTN = document.querySelector('.multiplyBTN')
 const divideBTN = document.querySelector('.divideBTN')
 const minusBTN = document.querySelector('.minusBTN')
