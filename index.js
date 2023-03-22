@@ -6,6 +6,7 @@ const divideBTN = document.querySelector('.divideBTN')
 const minusBTN = document.querySelector('.minusBTN')
 const plusBTN = document.querySelector('.plusBTN')
 const delBTN = document.querySelector('.delBTN')
+const negBTN = document.querySelector('.negativeBTN')
 const num7 = document.querySelector('.seven')
 const num8 = document.querySelector('.eight')
 const num9 = document.querySelector('.nine')
@@ -17,6 +18,7 @@ const num2 = document.querySelector('.two')
 const num3 = document.querySelector('.three')
 const num0 = document.querySelector('.zero')
 const periodBTN = document.querySelector('.periodBTN')
+let posOrNeg = true
 let decimalCheckArr = [];
 let numArr = [0];
 let opArr = [];
@@ -117,6 +119,14 @@ function checkDecimal() {
     }
 }
 
+function checkNaN(num) {
+    if (numArr.includes(NaN)) {
+        numArr = [num]
+    } else {
+        console.log('False')
+    }
+}
+
 function equals() {
     numArr.push(parseFloat(resultEL.textContent))
     console.log(numArr)
@@ -161,6 +171,25 @@ function clear() {
     totalResult = ''
     opArr = []
 }
+function makeNegative() {
+    switch (posOrNeg) {
+        case true:
+    let negNumArr = []
+    let negNum = ''
+    for (let i = 0; i < resultEL.textContent.length;i++) {
+        negNumArr.push(resultEL.textContent[i])
+    }
+    negNumArr.unshift('-')
+    for (let index = 0; index < negNumArr.length; index++) {
+        negNum += negNumArr[index]
+    }
+    resultEL.textContent = negNum
+    posOrNeg = false
+        case false:
+    posOrNeg = true
+    console.log('positive number test')
+    }
+}
 // Declare event listeners
 clearBTN.addEventListener('click', () => {
     clear()
@@ -179,6 +208,10 @@ delBTN.addEventListener('click', () => {
     resultEL.textContent = delStr
 })
 
+negBTN.addEventListener('click', () => {
+    makeNegative()
+})
+
 equalBTN.addEventListener('click', () => {
     console.log(opArr.length)
     equals()
@@ -195,29 +228,28 @@ plusBTN.addEventListener('click', () => {
     opArrLength = opArr.length
     if (opArr.length === 1) {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'equals') {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
+    checkNaN(0)
     console.log(numArr, opArr) 
 })
-
-// while 
 
 minusBTN.addEventListener('click', () => {
     decimalCheckArr = []
@@ -225,25 +257,26 @@ minusBTN.addEventListener('click', () => {
     opArrLength = opArr.length
     if (opArr.length === 1) {
         minus()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'equals') {
         minus()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
+    checkNaN(0)
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
@@ -254,58 +287,56 @@ multiplyBTN.addEventListener('click', () => {
     if (opArr.length === 1) {
         numArr = [1]
         multiply()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'subtraction') {
         minus()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'multiplication') {
         multiply()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'divison') {
         divide()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'equals') {
         multiply()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
 
     }
+    checkNaN(1)
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
 divideBTN.addEventListener('click', () => {
    decimalCheckArr = []
    opArr.push('division')
-   for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
-   }
    if (numArr)
    opArrLength = opArr.length
    if (opArr.length === 1) {
         divide()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'subtraction') {
        minus()
-       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+       console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'multiplication') {
        multiply()
-       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+       console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'divison') {
        divide()
-       console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+       console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'equals') {
         divide()
-        console.log("🚀 ~ file: index.js:194 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else {
 
    }
+   checkNaN(0)
    console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
@@ -346,4 +377,3 @@ periodBTN.addEventListener('click', () => {
 
 // TODO make negtive numbers work
 // TODO number outside the
-// TODO fix what would happen if any button is pressed twice or equal button before other numbers / buttons
