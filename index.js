@@ -206,7 +206,11 @@ function makeNegative() {
 }
 function checkLength() {
     if (resultEL.textContent.length > 15) {
+        let prevNum = resultEL.textContent
         resultEL.textContent = 'number to large'
+        setTimeout(() => {
+            resultEL.textContent = prevNum
+        }, 500);
     }
 }
 
