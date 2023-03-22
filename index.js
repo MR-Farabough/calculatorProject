@@ -341,7 +341,8 @@ divideBTN.addEventListener('click', () => {
    if (numArr)
    opArrLength = opArr.length
    if (opArr.length === 1) {
-        divide()
+        numArr = [1]
+        multiply()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
