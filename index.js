@@ -101,22 +101,23 @@ function divide() {
 }
 
 function checkDecimal() {
-    for (let i = 0; i < resultEL.textContent.length; i++) {
-        if (decimalCheckArr[i] === '.') {
-            break
-        } else {
-            resultEL.textContent += '.'
-            return decimalCheckArr.push('.')
-        }
+    if (decimalCheckArr.includes('.')) {
+        return
+    } else {
+        resultEL.textContent += '.'
+        return decimalCheckArr.push('.')
     }
-    for (let index = 0; index < resultEL.textContent.length; index++) {
-        if (decimalCheckArr[index] === '.') {
-            break
-        } else {
-            return decimalCheckArr.push(resultEL.textContent[index])
-        }
-        
-    }
+    // for (let index = 0; index < resultEL.textContent.length; index++) {
+    //     if (decimalCheckArr.length == 0) {
+    //         decimalCheckArr.push('.')
+    //         resultEL.textContent += '.'
+    //     } else if (decimalCheckArr[index] === '.') {
+    //         break
+    //     } else {
+    //         decimalCheckArr.push(resultEL.textContent[index])
+    //         break 
+    //     }
+    // }
 }
 
 function checkNaN(num) {
@@ -172,22 +173,35 @@ function clear() {
     opArr = []
 }
 function makeNegative() {
-    switch (posOrNeg) {
-        case true:
     let negNumArr = []
     let negNum = ''
-    for (let i = 0; i < resultEL.textContent.length;i++) {
-        negNumArr.push(resultEL.textContent[i])
-    }
-    negNumArr.unshift('-')
-    for (let index = 0; index < negNumArr.length; index++) {
-        negNum += negNumArr[index]
-    }
-    resultEL.textContent = negNum
-    posOrNeg = false
-        case false:
-    posOrNeg = true
-    console.log('positive number test')
+    switch (posOrNeg) {
+    case true:
+        negNumArr = []
+        negNum = ''
+        for (let i = 0; i < resultEL.textContent.length;i++) {
+            negNumArr.push(resultEL.textContent[i])
+        }
+        negNumArr.unshift('-')
+        for (let index = 0; index < negNumArr.length; index++) {
+            negNum += negNumArr[index]
+        }
+        resultEL.textContent = negNum
+        posOrNeg = false
+        break
+    case false:
+        negNumArr = []
+        negNum = ''
+        for (let i = 0; i < resultEL.textContent.length;i++) {
+            negNumArr.push(resultEL.textContent[i])
+        }
+        negNumArr.shift()
+        for (let index = 0; index < negNumArr.length; index++) {
+            negNum += negNumArr[index]
+        }
+        resultEL.textContent = negNum
+        posOrNeg = true
+        break
     }
 }
 // Declare event listeners
@@ -375,5 +389,4 @@ periodBTN.addEventListener('click', () => {
     checkDecimal()
 })
 
-// TODO make negtive numbers work
 // TODO number outside the
