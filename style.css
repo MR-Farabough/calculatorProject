@@ -123,6 +123,10 @@ a {
     min-width: (126.66 / 2)px;
 }
 
+#equalBTN {
+    background-color: rgb(233, 99, 37);
+}
+
 .operation-button-part button{
     align-items: center;
     justify-content: center;
