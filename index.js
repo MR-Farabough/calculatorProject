@@ -362,7 +362,7 @@ divideBTN.addEventListener('click', () => {
 
    }
    checkLength()
-   checkNaN(0)
+   checkNaN(1)
    console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
