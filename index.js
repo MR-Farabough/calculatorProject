@@ -451,5 +451,3 @@ periodBTN.addEventListener('click', () => {
     console.log(decimalCheckArr)
     checkDecimal()
 })
-
-// TODO number outside the
