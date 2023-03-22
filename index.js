@@ -204,6 +204,12 @@ function makeNegative() {
         break
     }
 }
+function checkLength() {
+    if (resultEL.textContent.length > 15) {
+        resultEL.textContent = 'number to large'
+    }
+}
+
 // Declare event listeners
 clearBTN.addEventListener('click', () => {
     clear()
@@ -223,10 +229,12 @@ delBTN.addEventListener('click', () => {
 })
 
 negBTN.addEventListener('click', () => {
+    checkLength()
     makeNegative()
 })
 
 equalBTN.addEventListener('click', () => {
+    checkLength()
     console.log(opArr.length)
     equals()
     res = totalResult
@@ -262,6 +270,7 @@ plusBTN.addEventListener('click', () => {
 
     }
     checkNaN(0)
+    checkLength()
     console.log(numArr, opArr) 
 })
 
@@ -291,6 +300,7 @@ minusBTN.addEventListener('click', () => {
 
     }
     checkNaN(0)
+    checkLength()
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
@@ -321,6 +331,7 @@ multiplyBTN.addEventListener('click', () => {
 
     }
     checkNaN(1)
+    checkLength()
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
@@ -350,41 +361,93 @@ divideBTN.addEventListener('click', () => {
    } else {
 
    }
+   checkLength()
    checkNaN(0)
    console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
 num0.addEventListener('click', () => {
-    resultEL.textContent += 0
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 0
+    }
 })
 num1.addEventListener('click', () => {
-    resultEL.textContent += 1
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 1
+    }
 })
 num2.addEventListener('click', () => {
-    resultEL.textContent += 2
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 2
+    }
 })
 num3.addEventListener('click', () => {
-    resultEL.textContent += 3
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 3
+    }
 })
 num4.addEventListener('click', () => {
-    resultEL.textContent += 4
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 4
+    }
 })
 num5.addEventListener('click', () => {
-    resultEL.textContent += 5
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 5
+    }
 })
 num6.addEventListener('click', () => {
-    resultEL.textContent += 6
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 6
+    }
 })
 num7.addEventListener('click', () => {
-    resultEL.textContent += 7
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 7
+    }
 })
 num8.addEventListener('click', () => {
-    resultEL.textContent += 8
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 8
+    }
 })
 num9.addEventListener('click', () => {
-    resultEL.textContent += 9
+    checkLength()
+    if (resultEL.textContent === 'number to large') {
+        return
+    } else {
+        return resultEL.textContent += 9
+    }
 })
 periodBTN.addEventListener('click', () => {
+    checkLength()
     console.log(decimalCheckArr)
     checkDecimal()
 })
