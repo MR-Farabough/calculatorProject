@@ -262,8 +262,8 @@ plusBTN.addEventListener('click', () => {
     } else {
 
     }
-    checkNaN(0)
     checkLength()
+    checkNaN(0)  
     console.log(numArr, opArr) 
 })
 
@@ -292,8 +292,8 @@ minusBTN.addEventListener('click', () => {
     } else {
 
     }
-    checkNaN(0)
     checkLength()
+    checkNaN(0)
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
@@ -323,8 +323,8 @@ multiplyBTN.addEventListener('click', () => {
     } else {
 
     }
-    checkNaN(1)
     checkLength()
+    checkNaN(1)
     console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
