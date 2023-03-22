@@ -222,12 +222,11 @@ delBTN.addEventListener('click', () => {
 })
 
 negBTN.addEventListener('click', () => {
-    checkLength()
     makeNegative()
+    checkLength()
 })
 
 equalBTN.addEventListener('click', () => {
-    checkLength()
     console.log(opArr.length)
     equals()
     res = totalResult
@@ -235,6 +234,7 @@ equalBTN.addEventListener('click', () => {
     resultEL.textContent = res
     console.log(opArr)
     decimalCheckArr = []
+    checkLength()
 })
 
 plusBTN.addEventListener('click', () => {
