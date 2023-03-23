@@ -346,7 +346,7 @@ multiplyBTN.addEventListener('click', () => {
         multiply()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
-
+        add()
     }
     checkLength()
     checkNaN(1)
