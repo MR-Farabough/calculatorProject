@@ -26,13 +26,16 @@ let totalResult = '';
 // Declare functions
 
 function add() {
+    console.log('add function start')
     opArrLength = opArr.length
     if (opArr[opArrLength - 1] === 'equals') {
+        console.log('add func if')
         numArrLength = numArr.length
         resultEL.textContent = ''
         
         console.log(numArr)
     } else {
+        console.log('add func if')
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] + numArr[numArrLength - 1])
@@ -81,20 +84,28 @@ function multiply() {
 
 function divide() {
     opArrLength = opArr.length
-    if (opArr[opArrLength - 1] === 'equals') {
-        numArrLength = numArr.length
-        resultEL.textContent = ''
-        console.log(numArr)
-    } else if (opArrLength === 0) {
+    if (opArrLength === 0) {
         numArr.push(parseFloat(resultEL.textContent))
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         resultEL.textContent = ''
         console.log(numArr)
-    } else {
+    } else if (opArr[opArrLength - 1] === 'equals') {
+        numArrLength = numArr.length
+        numArr.push(parseFloat(resultEL.textContent))
+        numArr.push(parseFloat(resultEL.textContent))
+        resultEL.textContent = ''
+        console.log(numArr)
+    } else if (opArr.includes('division')) {
         numArr.push(parseFloat(resultEL.textContent))
         numArrLength = numArr.length
         numArr.push(numArr[numArrLength - 2] / numArr[numArrLength - 1])
+        resultEL.textContent = ''
+        console.log(numArr)
+    } else {
+        console.log('division else test')
+        numArr.push(parseFloat(resultEL.textContent))
+        numArrLength = numArr.length
         resultEL.textContent = ''
         console.log(numArr)
     }
@@ -112,8 +123,9 @@ function checkDecimal() {
 function checkNaN(num) {
     if (numArr.includes(NaN)) {
         numArr = [num]
+        opArr = []
     } else {
-        console.log('False')
+        console.log('no NaN in Arr')
     }
 }
 
@@ -238,29 +250,37 @@ equalBTN.addEventListener('click', () => {
 })
 
 plusBTN.addEventListener('click', () => {
+    console.log('plus btn start')
     decimalCheckArr = []
     opArr.push('addition')
     opArrLength = opArr.length
     if (opArr.length === 1) {
+        console.log("1 add condition")
         add()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'addition') {
+        console.log("2 add condition")
         add()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'subtraction') {
+        console.log("3 add condition")
         minus()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'multiplication') {
+        console.log("4 add condition")
         multiply()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'divison') {
+        console.log("5 add condition")
         divide()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'equals') {
+        console.log("6 add condition")
         add()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else {
-
+        divide()
+        console.log("7 add condition")
     }
     checkLength()
     checkNaN(0)  
@@ -271,7 +291,12 @@ minusBTN.addEventListener('click', () => {
     decimalCheckArr = []
     opArr.push('subtraction')
     opArrLength = opArr.length
-    if (opArr.length === 1) {
+    if (opArr.includes('subtraction')) {
+        checkNaN(0)
+        opArr.push('subtraction')
+        numArr.push(parseFloat(resultEL.textContent))
+        resultEL.textContent = ''
+    } else if (opArr.length === 1) {
         minus()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
     } else if (opArr[opArrLength - 2] === 'addition') {
@@ -331,11 +356,13 @@ multiplyBTN.addEventListener('click', () => {
 divideBTN.addEventListener('click', () => {
    decimalCheckArr = []
    opArr.push('division')
-   if (numArr)
    opArrLength = opArr.length
-   if (opArr.length === 1) {
-        numArr = [1]
-        multiply()
+   if (opArr.length === 1 && opArr.includes('division')) {
+        console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
+        numArr.push(parseFloat(resultEL.textContent))
+        resultEL.textContent = ''
+   } else if (opArr.length === 1) {
+        divide()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else if (opArr[opArrLength - 2] === 'addition') {
         add()
@@ -353,11 +380,11 @@ divideBTN.addEventListener('click', () => {
         divide()
         console.log("plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
    } else {
-
+        console.log('test')
    }
+        console.log("🚀 ~ file: index.js:373 ~ divideBTN.addEventListener ~ numArr:", numArr)
    checkLength()
    checkNaN(1)
-   console.log("🚀 ~ file: index.js:177 ~ plusBTN.addEventListener ~ numArr, opArr:", numArr, opArr)
 })
 
 num0.addEventListener('click', () => {
